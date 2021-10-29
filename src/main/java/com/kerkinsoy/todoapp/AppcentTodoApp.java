@@ -28,31 +28,6 @@ public class AppcentTodoApp implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*User user = new User();
-		user.setEmail("k@g.com");
-		user.setPassword("passw0rd");
-		user.setUsername("Kerem");
-
-		Todo todo  = new Todo();
-		todo.setUser(user);
-		todo.setContent("Pass the assestment");
-
-		int i = 5;
-
-		System.out.println("i: " + i);
-
-
-
-		String str = i + "";
-
-
-
-
-		user.getTodoList().add(todo);
-		System.out.println("SELAM: " + user.getTodoList().get(0).getContent());
-
-		//todoRepository.save(todo);
-
-		userRepository.save(user);*/
+		
 	}
 }
