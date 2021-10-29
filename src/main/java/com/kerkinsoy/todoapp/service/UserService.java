@@ -35,9 +35,6 @@ public class UserService {
         Authentication authentication = new UsernamePasswordAuthenticationToken(loginUserRequest.getEmail(),
                                                                                 loginUserRequest.getPassword());
 
-
-
-
         final String name = (String) authentication.getPrincipal();
 
         final String password = (String) authentication.getCredentials();
@@ -56,10 +53,7 @@ public class UserService {
 
         return userRepository.findByEmail(loginUserRequest.getEmail()).get();
 
-
     }
-
-
 
     public User addUser(CreateUserRequest createUserRequest){
         if(userRepository.findByEmail(createUserRequest.getEmail()).isPresent()){
