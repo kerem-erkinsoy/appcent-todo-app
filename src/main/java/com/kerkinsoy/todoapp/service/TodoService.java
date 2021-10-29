@@ -25,15 +25,10 @@ public class TodoService {
     }
 
     public List<Todo> getAllTodos(){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-
         return todoRepository.findAll();
     }
 
     public Todo getSingleTodo(Long todoId){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
         return todoRepository.findById(todoId).orElseThrow(()-> new NoSuchElementException("Todo not found by id"));
     }
 
@@ -79,11 +74,6 @@ public class TodoService {
     }
 
     public Todo updateTodo(Long todoId, UpdateTodoRequest updateTodoRequest){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-
-
-        //Todo todo = user.getTodoList().get(todoId);
         Todo todo = todoRepository.findById(todoId)
                     .orElseThrow(() -> new NoSuchElementException("Todo is not fount for update operation!"));
 
