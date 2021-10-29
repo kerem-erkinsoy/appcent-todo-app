@@ -1,5 +1,5 @@
-# Appcent Todo-App REST-API
-A todo list API built using Spring Boot. The todo app is implemented using the in memory H2 database. The exposed swagger documented RESTFUL API endpoinds can be accessed via the link "http://localhost:8080/swagger-ui.html". The application provides the authenticate process and todo operations are performed according to the authenticated user. 
+# Appcent Todo-App
+A todo list API built using Spring Boot. The todo app is implemented using the in-memory H2 database. The exposed Swagger documented RESTFUL API endpoinds can be accessed via the link "http://localhost:8080/swagger-ui.html". The application provides the authenticate process and todo operations are performed according to the authenticated user. 
 
 
 
