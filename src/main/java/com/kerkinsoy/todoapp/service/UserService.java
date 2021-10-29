@@ -35,13 +35,9 @@ public class UserService {
         Authentication authentication = new UsernamePasswordAuthenticationToken(loginUserRequest.getEmail(),
                                                                                 loginUserRequest.getPassword());
 
-        System.out.println("girdij ana geçemedik");
 
 
-        System.out.println("Logine girdik");
 
-
-        System.out.println("Loginden önce" + SecurityContextHolder.getContext().getAuthentication().getName());
         final String name = (String) authentication.getPrincipal();
 
         final String password = (String) authentication.getCredentials();
@@ -49,16 +45,14 @@ public class UserService {
         User tempUser = findUserByEmail(loginUserRequest.getEmail());
 
         if (!tempUser.getPassword().equals(loginUserRequest.getPassword())){
-            throw new BadCredentialsException("illegal passowrd");
+            throw new BadCredentialsException("Illegal passowrd");
         }
 
         final String storedPassword = userRepository.findByEmail(loginUserRequest.getEmail()).map(User::getPassword)
-                .orElseThrow(() -> new BadCredentialsException("illegal id or passowrd"));
+                .orElseThrow(() -> new BadCredentialsException("Illegal password"));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        System.out.println("Exceptionı geçtik");
-        System.out.println("Loginden sonra" + SecurityContextHolder.getContext().getAuthentication().getName());
 
         return userRepository.findByEmail(loginUserRequest.getEmail()).get();
 
@@ -67,7 +61,6 @@ public class UserService {
 
 
 
-    @Operation(summary = "New User adding method")
     public User addUser(CreateUserRequest createUserRequest){
         if(userRepository.findByEmail(createUserRequest.getEmail()).isPresent()){
             throw new NonUniqueResultException("User already exist exception!");
