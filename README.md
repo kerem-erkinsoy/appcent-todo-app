@@ -23,7 +23,7 @@ A todo list API built using Spring Boot. The todo app is implemented using the i
 ![2](https://user-images.githubusercontent.com/68387972/139501360-74d3ffd2-f0d4-4c4b-85de-ac0695113773.png)
 
 
-### Then he logs in with his registered information.
+### Then user logs in with his registered information.
 
 ![3](https://user-images.githubusercontent.com/68387972/139501468-ce57dbd5-e764-4ff4-a238-f451f723efa3.png)
 
