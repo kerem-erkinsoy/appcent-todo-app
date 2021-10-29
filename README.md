@@ -4,7 +4,7 @@ A todo list API built using Spring Boot. The todo app is implemented using the i
 
 
 ## Technology Stack:
-*	Java 8+
+*	Java 11
 •	Spring Boot
 *	Spring Data
 * Spring Security
