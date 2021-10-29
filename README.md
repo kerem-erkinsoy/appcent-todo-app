@@ -13,7 +13,7 @@ A todo list API built using Spring Boot. The todo app is implemented using the i
 *	Maven
 *	JUnit and Mockito
 
-Test Scenario:
+## Test Scenario:
 
 ### First, the user registers.
 
