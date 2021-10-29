@@ -35,18 +35,11 @@ public class UserService {
         Authentication authentication = new UsernamePasswordAuthenticationToken(loginUserRequest.getEmail(),
                                                                                 loginUserRequest.getPassword());
 
-        final String name = (String) authentication.getPrincipal();
-
-        final String password = (String) authentication.getCredentials();
-
         User tempUser = findUserByEmail(loginUserRequest.getEmail());
 
         if (!tempUser.getPassword().equals(loginUserRequest.getPassword())){
             throw new BadCredentialsException("Illegal passowrd");
         }
-
-        final String storedPassword = userRepository.findByEmail(loginUserRequest.getEmail()).map(User::getPassword)
-                .orElseThrow(() -> new BadCredentialsException("Illegal password"));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -75,7 +68,6 @@ public class UserService {
         return user;
     }
 
-    //public void deleteUserById(Long userId) throws Exception{
     public User deleteUserById(Long userId){
         User user = userRepository.findById(userId)
                 .orElseThrow(()-> new UserNotFoundException("Silme işlemi için kullanıcı bulunamadı, girilen ID: " + userId));
