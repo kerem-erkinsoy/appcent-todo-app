@@ -21,20 +21,17 @@ public class UserExceptionHandler {
                 exc.getMessage(),
                 new Date());
 
-        System.out.println("DONMESI LAZIM BE AGA");
         return new ResponseEntity<>(error, HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
     }
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<?> customerNotFoundExceptionHandler(UserNotFoundException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
-        //return new ResponseEntity<>("yarrami yala", HttpStatus.NOT_FOUND);
     }
 
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException ex,
                                                                   final WebRequest request) {
-        System.out.println("Validation Error Method getting executed!!!!");
         final List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
 
